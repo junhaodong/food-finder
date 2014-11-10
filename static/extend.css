@@ -1,0 +1,27 @@
+/*
+tan: #FFEFD3;
+yellow: #FFFEE4;
+light blue: #D0ECEA;
+bluegreen: #9FD6D2;
+brown: #8B7A5E; 
+*/
+body {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FFFEE4;
+}
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    text-align: center;
+    background-color: white;
+}
+h1 {
+    color: #8B7A5E; 
+    text-align:left;
+}
+.imagescroll {
+    background-color: #FFEFD3;
+    overflow: auto;
+}
