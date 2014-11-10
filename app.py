@@ -1,11 +1,11 @@
 from flask import Flask, request, url_for, redirect, render_template
-import json
+import json, urllib
 
 app=Flask(__name__)
 
 @app.route("/")
 def index():
-	return "this is the index page"
+	return render_template("index.html")
 
 @app.route("/tagged/<tag>")
 def tag(tag="foodporn"):
