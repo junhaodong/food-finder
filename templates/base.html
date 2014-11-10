@@ -5,6 +5,15 @@
 </head>
 
 <body>
-  
+  <div class="container">
+    <h1>Food Finder</h1>
+    <form>
+      <input type="text" name="search" placeholder="Search for a type of food">
+      <button type="submit">Search!</button>
+    </form>
+    {% block bodycontent %}
+    {% endblock %}
+    <br><br>
+  </div>
 </body>
 
