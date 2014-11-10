@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block bodycontent %}
+<br>
+<div class="pure-u-2-5 imagescroll">
+  <h2>Tumblr</h2>
+  IMAGES YAY
+  {% for image in tumblrimages %}
+  <img src="{{image}}">
+  {% endfor %}
+  <br><br>
+</div>
+<div class = "pure-u-2-5 imagescroll">
+  <h2>Instagram</h2>
+  IMAGES YAY
+  {% for image in instagramimages %}
+  <img src="{{image}}">
+  {% endfor %}
+  <br><br>
+</div>
+{% endblock %}
