@@ -1,5 +1,10 @@
 from flask import Flask, request, url_for, redirect, render_template
-import json, urllib2
+import json
+try:
+	import urllib2
+except:
+	import urllib.request as urllib2
+
 
 app=Flask(__name__)
 
