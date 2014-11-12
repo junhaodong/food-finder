@@ -7,6 +7,11 @@
 <body>
   <div class="container">
     <h1><a href="/">Food Finder</a></h1>
+    
+    <div class="pure-u-2-5">
+      <h2>{{error}}</h2>
+    </div>
+
     <form class = "pure-form" action = "/" method = "POST">
       <input class = "text" type="text" name="search" placeholder="Search for a type of food">
       <button type="submit" class = "pure-button pure-button-primary button">Search!</button>

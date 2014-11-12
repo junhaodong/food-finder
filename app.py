@@ -13,10 +13,11 @@ h8tyKOeIISQnDdAR4jRl6CN5ascDxsX1kTpUBq9"
 
 igURL = "https://api.instagram.com/v1/tags/%s/media/recent?client_id=d055f7c865394a4ab5c5cfe1f991f0c8"
 
+
 #return list of image URLs
 def getImageURLs(apiLink, tag):
 	url = apiLink % (tag)
-	data = urllib2.urlopen(url).read().decode("utf-8")
+        data = urllib2.urlopen(url).read()
 	result = json.loads(data)
 	list = []
 	if apiLink == tumblrURL:
@@ -36,17 +37,24 @@ def getImageURLs(apiLink, tag):
 @app.route("/", methods=["GET","POST"])
 def index():
 	if request.method=="POST":
-		search = request.form["search"]
-		return redirect(url_for("tagged",tag = search))
-	tumblrImages = getImageURLs(tumblrURL,"foodporn")
-	igImages = getImageURLs(igURL,"foodporn")
-	return render_template("index.html",tumblrImages=tumblrImages,igImages=igImages)
+		search = request.form["search"].replace(' ','')
+                if len(search) > 0:
+                        return redirect(url_for("tagged",tag = search))
+        return tagged("foodporn")
 	
 @app.route("/tagged/<tag>")
-def tagged(tag):
-	tumblrImages = getImageURLs(tumblrURL,tag)
-	igImages = getImageURLs(igURL,tag)
-	return render_template("index.html", tumblrImages=tumblrImages, igImages=igImages, query=tag)
+def tagged(tag, error=None):
+        if tag == None:
+                return redirect(url_for("/"))
+        try:
+                tumblrImages = getImageURLs(tumblrURL,tag)
+                igImages = getImageURLs(igURL,tag)
+        except:
+                error = "Enter a valid tag to search with!"
+                return tagged("foodporn",error)
+                #return render_template("index.html", error=error)
+	return render_template("index.html", tumblrImages=tumblrImages, igImages=igImages, query=tag, error=error)
+
 	
 if __name__=="__main__":
 	app.debug=True
