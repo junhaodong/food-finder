@@ -1,10 +1,10 @@
 from flask import Flask, request, url_for, redirect, render_template
-import json
-try:
-	import urllib2
-except:
-	import urllib.request as urllib2
+import json, urllib2
 
+#try:
+#	import urllib2
+#except:
+#	import urllib.request as urllib2
 
 app=Flask(__name__)
 
@@ -33,7 +33,8 @@ def getImageURLs(apiLink, tag):
 			except:
 				pass
 	return list
-		
+
+@app.route("/tagged/")		
 @app.route("/", methods=["GET","POST"])
 def index():
 	if request.method=="POST":
@@ -52,7 +53,6 @@ def tagged(tag, error=None):
         except:
                 error = "Enter a valid tag to search with!"
                 return tagged("foodporn",error)
-                #return render_template("index.html", error=error)
 	return render_template("index.html", tumblrImages=tumblrImages, igImages=igImages, query=tag, error=error)
 
 	
