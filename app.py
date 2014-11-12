@@ -1,9 +1,5 @@
 from flask import Flask, request, url_for, redirect, render_template
-import json
-try:
-	import urllib.request as urllib2
-except ImportException:
-	import urllib2
+import json, urllib2
 
 app=Flask(__name__)
 
@@ -11,11 +7,6 @@ tumblrURL = "http://api.tumblr.com/v2/tagged?tag=%s&api_key=R3IuczppduJ\
 h8tyKOeIISQnDdAR4jRl6CN5ascDxsX1kTpUBq9"
 
 igURL = "https://api.instagram.com/v1/tags/%s/media/recent?client_id=d055f7c865394a4ab5c5cfe1f991f0c8"
-
-##TO DO
-# need to resize images to scale
-# figure out ig api (if possible)
-##
 
 #return list of image URLs
 def getImageURLs(apiLink, tag):
