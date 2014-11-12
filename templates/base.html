@@ -6,10 +6,10 @@
 
 <body>
   <div class="container">
-    <h1>Food Finder</h1>
-    <form action = "/" method = "POST">
-      <input type="text" name="search" placeholder="Search for a type of food">
-      <button type="submit">Search!</button>
+    <h1><a href="/">Food Finder</a></h1>
+    <form class = "pure-form" action = "/" method = "POST">
+      <input class = "text" type="text" name="search" placeholder="Search for a type of food">
+      <button type="submit" class = "pure-button pure-button-primary button">Search!</button>
     </form>
     {% block bodycontent %}
     {% endblock %}

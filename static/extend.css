@@ -5,29 +5,52 @@ light blue: #D0ECEA;
 bluegreen: #9FD6D2;
 brown: #8B7A5E; 
 */
+@import url(http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic);
+@import url(http://fonts.googleapis.com/css?family=Maven+Pro:400,500,700,900);
 body {
     margin-left: auto;
     margin-right: auto;
-    background-color: #FFFEE4;
+    background-color: white;
+    font-family: "Josefin Slab";
+    font-weight: 300;
+    color: #036564;
+}
+a {
+    font-family: "Josefin Slab";
+    font-weight: 600;
+    color: #033649;
+    text-decoration: none;
+    font-size: 50px;
 }
 .container {
     margin-left: auto;
     margin-right: auto;
     width: 90%;
     text-align: center;
-    background-color: white;
 }
 h1 {
-    color: #8B7A5E; 
     text-align:left;
 }
 .imagescroll {
-    background-color: #FFEFD3;
-    height: 700px;
+    background-color: white;
+    height: 650px;
     overflow: auto;
+    padding:10px;
 }
 img{
     max-width: 100%;
     max-height: auto;
-    
+    width: 100%;
+    height: auto;    
 }
+.button {
+    border-radius: 5px;
+}
+.text {
+    font-family:"Josefin Slab";
+    width: 300px; 
+}
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 

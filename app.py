@@ -33,18 +33,20 @@ def getImageURLs(apiLink, tag):
 				pass
 	return list
 		
-@app.route("/")
+@app.route("/", methods=["GET","POST"])
 def index():
+	if request.method=="POST":
+		search = request.form["search"]
+		return redirect(url_for("tagged",tag = search))
 	tumblrImages = getImageURLs(tumblrURL,"foodporn")
 	igImages = getImageURLs(igURL,"foodporn")
 	return render_template("index.html",tumblrImages=tumblrImages,igImages=igImages)
 	
 @app.route("/tagged/<tag>")
-def tag(tag="foodporn"):
-	tumblrStr = ""
-	for s in getImageURLs(tumblrURL,tag):
-		tumblrStr+= "<img src=%s>" % s
-	return tumblrStr
+def tagged(tag):
+	tumblrImages = getImageURLs(tumblrURL,tag)
+	igImages = getImageURLs(igURL,tag)
+	return render_template("index.html", tumblrImages=tumblrImages, igImages=igImages, query=tag)
 	
 if __name__=="__main__":
 	app.debug=True
